@@ -10,7 +10,7 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book,Integer> {
    @Query (value = "SELECT b FROM Book b WHERE b.bookAuthor LIKE concat('%', :keyword, '%')"
             + " OR b.bookTitle LIKE concat('%', :keyword, '%')")
-    public List<Book> search(@Param("keyword") String keyword);
+     List<Book> search(@Param("keyword") String keyword);
 
 
    @Query (value = "select sum(b.price*b.count) from Book b")
@@ -18,5 +18,6 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
 
     @Query (value = "select sum (b.count) from Book b")
     Integer booksCount();
+
 
 }

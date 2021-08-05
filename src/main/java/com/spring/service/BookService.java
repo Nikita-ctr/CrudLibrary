@@ -28,7 +28,7 @@ public class BookService {
     }
 
     public Book get(int id) {
-        return bookRepository.getOne(id);
+        return bookRepository.findById(id).get();
     }
 
     public void delete(int id) {
