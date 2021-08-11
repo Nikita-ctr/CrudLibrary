@@ -20,7 +20,7 @@ public class BookController {
     }
 
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public ModelAndView home() {
         List<Book> bookList = bookService.listAll();
         ModelAndView mav = new ModelAndView("index");
@@ -31,7 +31,7 @@ public class BookController {
     }
 
 
-    @RequestMapping("/new")
+    @RequestMapping(value = "/new",method = RequestMethod.GET)
     public String newBookForm(Map<String, Object> model) {
         Book book = new Book();
         model.put("book", book);
@@ -43,19 +43,19 @@ public class BookController {
         return "redirect:/";
     }
 
-    @RequestMapping("/edit")
+    @RequestMapping(value = "/edit",method = RequestMethod.GET)
     public ModelAndView editBookForm(@RequestParam int id) {
         ModelAndView mav = new ModelAndView("edit_book");
         Book book = bookService.get(id);
         mav.addObject("book", book);
         return mav;
     }
-    @RequestMapping("/delete")
+    @RequestMapping(value = "/delete")
     public String deleteBookForm(@RequestParam int id) {
         bookService.delete(id);
         return "redirect:/";
     }
-    @RequestMapping("/search")
+    @RequestMapping(value = "/search",method = RequestMethod.GET)
     public ModelAndView search(@RequestParam String keyword) {
         List<Book> result = bookService.search(keyword);
         ModelAndView mav = new ModelAndView("search");
