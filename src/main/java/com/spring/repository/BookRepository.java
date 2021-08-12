@@ -14,7 +14,7 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
 
 
    @Query (value = "select sum(b.price*b.count) from Book b")
-    Integer sumOfPrice();
+    Integer sumOfPrices();
 
     @Query (value = "select sum (b.count) from Book b")
     Integer booksCount();
