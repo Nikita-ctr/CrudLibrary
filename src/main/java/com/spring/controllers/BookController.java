@@ -25,7 +25,7 @@ public class BookController {
         List<Book> bookList = bookService.listAll();
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("bookList", bookList);
-        mav.addObject("sum",bookService.sumOfPrice());
+        mav.addObject("sum",bookService.sumOfPrices());
         mav.addObject("count",bookService.countOfBooks());
         return mav;
     }
