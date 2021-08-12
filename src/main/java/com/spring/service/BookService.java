@@ -39,7 +39,7 @@ public class BookService {
         return bookRepository.search(keyword);
     }
 
-    public Integer sumOfPrice(){
+    public Integer sumOfPrices(){
         return bookRepository.sumOfPrice();
     }
     public Integer countOfBooks(){
