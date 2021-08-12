@@ -57,7 +57,7 @@ public class BookControllerTest{
                 .andExpect(view().name("index"))
                 .andExpect(forwardedUrl("/WEB-INF/views/index.jsp"))
                 .andExpect(model().attribute("bookList",hasSize(2)))
-        .andExpect(model().attribute("sum",bookService.sumOfPrice()))
+        .andExpect(model().attribute("sum",bookService.sumOfPrices()))
         .andExpect(model().attribute("count",bookService.countOfBooks()));
         verify(bookService,times(1)).listAll();
 
